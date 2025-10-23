@@ -1,2 +1,2 @@
-# meu-projeto-gtk
-Aplicativo desktop desenvolvido com Python e GTK.
+# Projeto-PyDance
+Sistema desenvolvido com Python e GTK.
