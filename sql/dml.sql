@@ -24,6 +24,35 @@ VALUES (25/02/2025, 20/12/2027, 'Ativo'),
        (25/02/2023, 20/12/2025, 'Ativo');
 
 INSERT INTO PAGAMENTO (valor, data_vencimento, data_pagamento, status_pagamento)
-VALUES (2000,00, 5/11/2025, 28/10/2025, 'Efetuado'),
-       (1000,00, 5/11/2025, 4/11/2025, 'Efetuado'),
-       (1500,00, 10/11/2025, 14/11/2025, 'Efetuado');
+VALUES (2000.00, 5/11/2025, 28/10/2025, 'Efetuado'),
+       (1000.00, 5/11/2025, 4/11/2025, 'Efetuado'),
+       (1500.00, 10/11/2025, 14/11/2025, 'Efetuado');
+
+INSERT INTO FREQUENCIA (data_aula, presenca)
+VALUES (14/05/2025, 'Presente'),
+       (15/05/2025, 'Ausente'),
+       (16/05/2025, 'Presente');
+
+INSERT INTO EVENTO (nome, descricao, data_evento, valor, endereco)
+VALUES ('HipHopDance', 'Incrivelmente legal', 18/09/2025, 100.00, 'Rua Salgado'),
+       ('Lago dos cisnes', 'Contagiante', 05/09/2025, 200.00, 'Avenida Aloha'),
+       ('El Tango', 'Só para dançarinos exóticos', 08/09/2025, 250.00, 'Avenida Clara');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
