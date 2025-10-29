@@ -25,8 +25,6 @@ CREATE TABLE ESTILODANCA (
 
 CREATE TABLE TURMA (
   id_turma INT AUTO_INCREMENT PRIMARY KEY,
-  FOREIGN KEY (id_estilo) REFERENCES ESTILODANCA (id_estilo),
-  FOREIGN KEY (id_professor) REFERENCES PROFESSOR (id_professor),
   nivel VARCHAR(50) NOT NULL,
   horario TIME NOT NULL,
   sala INT(5) NOT NULL,
@@ -35,27 +33,23 @@ CREATE TABLE TURMA (
 
 CREATE TABLE MATRICULA (
   id_matricula INT AUTO_INCREMENT PRIMARY KEY,
-  FOREIGN KEY (id_aluno) REFERENCES ALUNO (id_aluno),
-  FOREIGN KEY (id_turma) REFERENCES TURMA (id_turma),
   data_inicio DATE NOT NULL,
   data_fim DATE NOT NULL,
-  status VARCHAR(50) NOT NULL
+  status_matricula VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE PAGAMENTO (
   id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
-  FOREIGN KEY (id_matricula) REFERENCES MATRICULA (id_matricula),
   valor MONEY NOT NULL,
   data_vencimento DATE NOT NULL,
   data_pagamento DATE NOT NULL,
-  status VARCHAR(50) NOT NULL
+  status_pagamento VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE FREQUENCIA (
   id_frequencia INT AUTO_INCREMENT PRIMARY KEY,
-  FOREIGN KEY (id_matricula) REFERENCES MATRICULA (id_matricula),
   data_aula DATE NOT NULL,
-  presenca VARCHAR(50)
+  presenca VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE EVENTO (
@@ -68,8 +62,7 @@ CREATE TABLE EVENTO (
 );
 
 CREATE TABLE PARTICIPACAOEVENTO (
-  id_participacao INT AUTO_INCREMENT PRIMARY KEY,
   FOREIGN KEY (id_evento) REFERENCES EVENTO (id_evento),
   FOREIGN KEY (id_aluno) REFERENCES ALUNO (id_aluno),
-  FOREIGN KEY (status) REFERENCES PAGAMENTO (status)
+  FOREIGN KEY (status_pagamento) REFERENCES PAGAMENTO (status_pagamento)
 );
