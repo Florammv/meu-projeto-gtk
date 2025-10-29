@@ -1,2 +1,3 @@
 # Projeto-PyDance
-Sistema desenvolvido com Python e GTK.
+Sistema desenvolvido com banco de dados e wireframe. 
+Objetivo: 
