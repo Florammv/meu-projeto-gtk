@@ -1,0 +1,75 @@
+CREATE TABLE ALUNO (
+  id_aluno  INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  data_nasc DATE NOT NULL,
+  cpf INT(11) NOT NULL,
+  telefone INT(9) NOT NULL,
+  email VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE PROFESSOR (
+  id_professor INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  data_nasc DATE NOT NULL,
+  cpf INT(11) NOT NULL,
+  especialidade VARCHAR(50) NOT NULL,
+  telefone INT(9) NOT NULL,
+  email VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE ESTILODANCA (
+  id_estilo INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL,
+  descricao VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE TURMA (
+  id_turma INT AUTO_INCREMENT PRIMARY KEY,
+  FOREIGN KEY (id_estilo) REFERENCES ESTILODANCA (id_estilo),
+  FOREIGN KEY (id_professor) REFERENCES PROFESSOR (id_professor),
+  nivel VARCHAR(50) NOT NULL,
+  horario TIME NOT NULL,
+  sala INT(5) NOT NULL,
+  vagas INT(6) NOT NULL
+);
+
+CREATE TABLE MATRICULA (
+  id_matricula INT AUTO_INCREMENT PRIMARY KEY,
+  FOREIGN KEY (id_aluno) REFERENCES ALUNO (id_aluno),
+  FOREIGN KEY (id_turma) REFERENCES TURMA (id_turma),
+  data_inicio DATE NOT NULL,
+  data_fim DATE NOT NULL,
+  status VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE PAGAMENTO (
+  id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
+  FOREIGN KEY (id_matricula) REFERENCES MATRICULA (id_matricula),
+  valor MONEY NOT NULL,
+  data_vencimento DATE NOT NULL,
+  data_pagamento DATE NOT NULL,
+  status VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE FREQUENCIA (
+  id_frequencia INT AUTO_INCREMENT PRIMARY KEY,
+  FOREIGN KEY (id_matricula) REFERENCES MATRICULA (id_matricula),
+  data_aula DATE NOT NULL,
+  presenca VARCHAR(50)
+);
+
+CREATE TABLE EVENTO (
+  id_evento INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  descricao VARCHAR(100) NOT NULL,
+  data_evento DATE NOT NULL,
+  valor MONEY NOT NULL,
+  endereco VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE PARTICIPACAOEVENTO (
+  id_participacao INT AUTO_INCREMENT PRIMARY KEY,
+  FOREIGN KEY (id_evento) REFERENCES EVENTO (id_evento),
+  FOREIGN KEY (id_aluno) REFERENCES ALUNO (id_aluno),
+  FOREIGN KEY (status) REFERENCES PAGAMENTO (status)
+);
