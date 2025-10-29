@@ -13,3 +13,17 @@ VALUES ('Hip Hop', 'Dança contemporânea'),
        ('Balé', 'Dança clássica'),
        ('Tango', 'Dança moderna');
 
+INSERT INTO TURMA (nivel, horario, sala, vagas)
+VALUES ('Iniciante', 9:00, 1, 100),
+       ('Intermediário', 15:00, 2, 200),
+       ('Avançado', 18:30, 3, 150);
+
+INSERT INTO MATRICULA (data_inicio, data_fim, status_matricula)
+VALUES (25/02/2025, 20/12/2027, 'Ativo'),
+       (25/02/2024, 20/12/2026, 'Ativo'),
+       (25/02/2023, 20/12/2025, 'Ativo');
+
+INSERT INTO PAGAMENTO (valor, data_vencimento, data_pagamento, status_pagamento)
+VALUES (2000,00, 5/11/2025, 28/10/2025, 'Efetuado'),
+       (1000,00, 5/11/2025, 4/11/2025, 'Efetuado'),
+       (1500,00, 10/11/2025, 14/11/2025, 'Efetuado');
